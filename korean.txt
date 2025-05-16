@@ -1,0 +1,14 @@
+Horror movies
+const url = `${baseUrl}discover/movie?api_key=${apiKey}&with_original_language=ko&sort_by=popularity.desc&include_adult=false&certification_country=KR&certification.lte=15&vote_count.gte=30&with_genres=27&page=${page}`;
+
+
+Action
+const url = `${baseUrl}discover/movie?api_key=${apiKey}&with_original_language=ko&sort_by=popularity.desc&include_adult=false&certification_country=KR&certification.lte=15&vote_count.gte=30&with_genres=28&page=${page}`;
+
+
+Comedy
+const url = `${baseUrl}discover/movie?api_key=${apiKey}&with_original_language=ko&sort_by=popularity.desc&include_adult=false&certification_country=KR&certification.lte=15&vote_count.gte=30&with_genres=35&page=${page}`;
+
+
+Romance
+const url = `${baseUrl}discover/movie?api_key=${apiKey}&with_original_language=ko&sort_by=popularity.desc&include_adult=false&certification_country=KR&certification.lte=15&vote_count.gte=30&with_genres=10749&page=${page}`;

@@ -1,0 +1,360 @@
+	<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="referrer" content="origin" />
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+    <title>Meowflex</title>
+	<meta name="description" content="Stream FREE movies, TV shows, Korean movies, and Kdramas online instantly! Watch on any device — smart TV, gaming console, PC, Mac, mobile, or tablet. Enjoy thousands of titles, from trending Korean movies and top-rated Kdramas to classic TV shows and new movie releases. With free streaming across devices, access a seamless viewing experience anytime, anywhere. Start streaming free Korean movies and Kdramas today for the best in entertainment!"/>
+	
+		
+</head>
+
+<!-- HTML Structure -->
+<section id="pinoy-movies">
+    <div id="movie-list"></div>
+
+<!-- Movie Popup -->
+<div id="movie-popup" style="display: none;">
+    <button id="close-popup">X</button>
+    <button id="fullscreen-btn">⛶</button>
+    <iframe id="movie-iframe" width="80%" height="80%" frameborder="0" allowfullscreen></iframe>
+</div>
+
+    <!-- Pagination -->
+    <div id="pagination">
+        <button id="prev-page">Previous</button>
+        <button id="next-page">Next</button>
+    </div>
+</section>
+	
+<style>
+
+#pinoy-movies {
+    text-align: center;
+    padding: 20px;
+	color: #bbb;
+}
+
+#movie-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 10px;
+    justify-content: center;
+    padding: 10px;
+}
+
+
+.movie-card {
+    cursor: pointer;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
+    background-color: #222;
+}
+
+.movie-card:hover {
+    transform: scale(1.05);
+}
+
+.movie-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px 8px 0 0;
+}
+
+.movie-title {
+    padding: 8px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+}
+
+
+#movie-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+#movie-iframe {
+    width: 90%;
+    height: 80vh;
+    max-width: 1200px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+
+#close-popup {
+    position: absolute;
+    top: 30px; 
+    left: 50%;
+    transform: translateX(-50%);
+    background: red;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    z-index: 1000; 
+    min-width: 100px; 
+    text-align: center;
+}
+
+
+@media (max-width: 768px) {
+    #close-popup {
+        top: 20px; 
+        font-size: 14px; 
+        padding: 6px 8px; 
+        width: 15px; 
+    }
+}
+
+
+#close-popup:hover {
+    background: darkred;
+}
+
+
+#pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+#pagination button {
+    padding: 10px 20px;
+    background: #444;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+#pagination button:disabled {
+    background: #777;
+    cursor: not-allowed;
+}
+
+#pagination button:hover:not(:disabled) {
+    background: #222;
+}
+
+
+@media (max-width: 768px) {
+    #movie-list {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+
+    #movie-iframe {
+        width: 90%;
+        height: 50vh;
+    }
+
+    .movie-title {
+        font-size: 12px;
+        padding: 6px;
+    }
+
+    #close-popup {
+        top: 10px;
+        right: 10px;
+        padding: 8px;
+        font-size: 14px;
+    }
+}
+
+#fullscreen-btn {
+    position: absolute;
+    top: 30px;
+    right: 50px;
+    background: #333;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    z-index: 1000;
+}
+
+#fullscreen-btn:hover {
+    background: #555;
+}
+
+</style>
+
+<script>
+const API_KEYS = [
+    "AIzaSyBfbjxyEjJVCHIF7iuYNA069DinpIf-xXw",
+    "AIzaSyAwpFL8uh-b41MzxBKmWgvqLBvnzSf6Kn0",
+    "AIzaSyBt6EVvDjREqptzWzrZ0vWt9ESV71uBLCM",
+    "AIzaSyDSSjW00ElOVvYS78S8etfny-OYWu0NcvU",
+    "AIzaSyBc6xDbA8JRCfHgMjv30YOqY_b-_whxkdg",
+    "AIzaSyB8kMlp4xdi0vTypO0QjXwI41L1Se9EsZ4",
+    "AIzaSyCifM0y-Pr0bkxL1vGnpwCQDLYHpOvgFZM",
+    "AIzaSyAJ4KhxSFBFw-ir5oLYYH73Dp-lqt2bdVY",
+    "AIzaSyBGwpUCdgZzvk353mJYOKL5UQdDa2yrouo",
+    "AIzaSyC6uPQsZkl-RKRPqZg8R_cKThZODlWautQ",
+    "AIzaSyCLJ0o5LT2S-7g0-CGT73PItH3FCVYEats",
+    "AIzaSyAMwkcOaJ-9QYlzG2mWRR6j7cQ8_bi_4Vc",
+    "AIzaSyCONoY1V0FIxMhv9esGpP1da23ZPuNSdes",
+    "AIzaSyCHKcqfI2J5tSiz8XSESL6N-pFN59210G8",
+    "AIzaSyBrE-vozKSRBjFQpCRJPe61KfoMaTj26UQ"
+];
+
+let currentApiKeyIndex = 0;
+
+function getApiKey() {
+    return API_KEYS[currentApiKeyIndex];
+}
+
+const channelIds = [
+    "UCS_XKv_M_HXLP10TxLfKvEQ",
+    "UCbaHbu02DtSydvFhrO4t1gg",
+    "UC1D36wr10qyCfisHulZ5G8Q",
+    "UC69I8egELqWywoX5wrh2KxQ",
+    "UCI5YsqsHxdSlaj9ORrnu1DA",
+    "UChh0rmwGvToBd3owvN2vRMg",
+    "UCNP49xH_JCwxHIfKdN8dCQw",
+    "UCstEtN0pgOmCf02EdXsGChw",
+    "UCNJ4O0LvYuMOiOvS-g6eADA",
+    "UCzggCZVkynvnjNV29L9EccA",
+    "UCKL5hAuzgFQsyrsQKgU0Qng"
+];
+
+const movieList = document.getElementById("movie-list");
+const prevPageBtn = document.getElementById("prev-page");
+const nextPageBtn = document.getElementById("next-page");
+
+let allMovies = [];
+let currentIndex = 0;
+const moviesPerPage = 5;
+
+
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
+
+async function fetchFromChannel(channelId) {
+    let success = false;
+    let localApiIndex = currentApiKeyIndex;
+
+    while (!success && localApiIndex < API_KEYS.length) {
+        const apiKey = API_KEYS[localApiIndex];
+        const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&q=full%20movie&type=video&videoDuration=long&maxResults=50&key=${apiKey}`;
+
+        try {
+            const response = await fetch(url);
+            const data = await response.json();
+
+            if (data.error && data.error.code === 403) {
+                localApiIndex++;
+                continue;
+            } else {
+                success = true;
+                return data.items || [];
+            }
+        } catch (error) {
+            console.error(`Error fetching from channel ${channelId}:`, error);
+            break;
+        }
+    }
+
+    return [];
+}
+
+
+async function fetchMovies() {
+    let movies = [];
+
+    const fetchPromises = channelIds.map(channelId => fetchFromChannel(channelId));
+    const results = await Promise.all(fetchPromises);
+
+    results.forEach(channelMovies => {
+        if (channelMovies && channelMovies.length > 0) {
+            movies = movies.concat(channelMovies);
+        }
+    });
+
+    if (movies.length > 0) {
+        shuffleArray(movies);
+        allMovies = movies;
+        currentIndex = 0;
+        displayMovies();
+    } else {
+        movieList.innerHTML = "<p>No movies found.</p>";
+    }
+}
+
+
+function displayMovies() {
+    movieList.innerHTML = "";
+    const moviesToShow = allMovies.slice(currentIndex, currentIndex + moviesPerPage);
+
+    moviesToShow.forEach(movie => {
+        const movieCard = document.createElement("div");
+        movieCard.classList.add("movie-card");
+        movieCard.innerHTML = `
+            <img src="${movie.snippet.thumbnails.medium.url}" alt="${movie.snippet.title}">
+            <div class="movie-title">${movie.snippet.title}</div>
+        `;
+        movieCard.addEventListener("click", () => openMoviePlayer(movie.id.videoId));
+        movieList.appendChild(movieCard);
+    });
+
+    prevPageBtn.disabled = currentIndex === 0;
+    nextPageBtn.disabled = currentIndex + moviesPerPage >= allMovies.length;
+}
+
+
+function openMoviePlayer(videoId) {
+    window.location.href = `pinoy-movies-player.html?videoId=${videoId}`;
+}
+
+
+prevPageBtn.addEventListener("click", () => {
+    if (currentIndex > 0) {
+        currentIndex -= moviesPerPage;
+        displayMovies();
+    }
+});
+
+nextPageBtn.addEventListener("click", () => {
+    if (currentIndex + moviesPerPage < allMovies.length) {
+        currentIndex += moviesPerPage;
+        displayMovies();
+    }
+});
+
+
+setInterval(fetchMovies, 24 * 60 * 60 * 1000);
+
+
+fetchMovies();
+</script>
+
+
+ 
+</div>
+</body>
+</html>

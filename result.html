@@ -1,0 +1,784 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Free Movies, Kdramas, TV Shows & Series Online - Watch on Meowflex</title>
+    
+    <meta name="description" content="Watch free Korean movies, top-rated Kdramas, and classic TV shows online at Meowflex. Stream instantly across smart TVs, PCs, and mobile devices—no subscriptions needed. Start watching now!">
+    <meta name="keywords" content="Stream Korean movies, Kdramas, Free streaming, Watch TV shows, No subscription, Meowflex entertainment, Free Kdrama, Movies online, Watch TV on any device">
+    <meta name="author" content="Meowflex">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.meowflex.com/">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Meowflex - Stream Free Korean Movies & TV Shows Online">
+    <meta property="og:description" content="Enjoy thousands of free Korean movies and top-rated TV shows. Watch instantly across all devices. Start streaming now on Meowflex.">
+    <meta property="og:image" content="android-chrome-512x512.png">
+    <meta property="og:url" content="https://www.meowflex.com/">
+    <meta property="og:site_name" content="Meowflex">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Meowflex - Stream Free Korean Movies & TV Shows Online">
+    <meta name="twitter:description" content="Watch thousands of Korean dramas and classic shows online for free. No account needed.">
+    <meta name="twitter:image" content="android-chrome-512x512.png">
+    <meta name="twitter:site" content="@meowflex">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css"/>
+
+
+    <link rel="stylesheet" href="style.css">
+	
+	<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1FRGFYQGQP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1FRGFYQGQP');
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WXRPPZNF');</script>
+<!-- End Google Tag Manager -->	
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Meowflex",
+  "url": "https://www.meowflex.com",
+  "logo": "favicon.ico"
+}
+</script>
+</head>
+
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WXRPPZNF"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<nav class="top-nav desktop-nav">
+  <div class="logo">
+    <img src="android-chrome-512x512.png" alt="Meowflex Logo" class="logo-img">
+    <span class="logo-text">Meowflex</span>
+  </div>
+
+<div class="search-bar-container">
+  <input type="text" class="search-bar" id="search-bar" placeholder="Search movies, or TV shows...">
+  <button class="search-button" id="search-button">
+    <i class="fas fa-search search-icon"></i>
+  </button>
+  <button class="clear-button" onclick="clearSearchInput()">×</button>
+  <div id="suggestions-container" class="suggestions-container"></div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const searchBar = document.getElementById('search-bar');
+    const searchButton = document.getElementById('search-button');
+
+    if (searchBar) {
+      // Use mousedown with capture to redirect immediately on focus/click
+      searchBar.addEventListener('mousedown', () => {
+        window.location.href = 'search-bar.html';
+      }, { capture: true });
+    }
+
+    if (searchButton) {
+      // Just redirect on click without preventing default, so other scripts run too
+      searchButton.addEventListener('click', () => {
+        window.location.href = 'search-bar.html';
+      });
+    }
+  });
+</script>
+<style>
+.search-icon {
+  color: #666;             /* Icon color */
+  font-size: 18px;         /* Size of the icon */
+  vertical-align: middle;  /* Align with text vertically */
+  cursor: pointer;         /* Show pointer on hover */
+  margin-left: 8px; 
+}
+
+.search-icon:hover {
+  color: #000;             /* Darker color on hover */
+}
+</style>
+
+
+ <div class="menu">
+<a href="index.html" class="nav-icon"><i class="fas fa-home"></i> Home</a>
+<a href="movies.html" class="nav-icon"><i class="fas fa-film"></i> Movies</a>
+<a href="tvshows.html" class="nav-icon"><i class="fas fa-tv"></i> TV Shows</a>
+<a href="korean.html" class="nav-icon"><i class="fas fa-clapperboard"></i> Korean</a>
+<a href="#" class="nav-icon" id="desktopMoreToggle"><i class="fas fa-bars"></i> More</a>
+
+<div class="more-menu" id="desktopMoreMenu" style="display: none;">
+<ul>
+  <li><a href="pmovies.html"><i class="bi bi-film"></i>&nbsp;Pinoy Movies</a></li>
+  <li><a href="favorite.html"><i class="fas fa-star"></i>&nbsp;Favorites</a></li>
+  <li><a href="donate.html"><i class="fas fa-hand-holding-heart"></i>&nbsp;Donate</a></li>
+  <li><a href="disclaimer.html"><i class="fas fa-exclamation-triangle"></i>&nbsp;Disclaimer</a></li>
+</ul>
+</div>
+</div>
+</nav>
+
+<div class="black-space2"></div>
+     <!-- Search Results Section -->
+    <div class="search-results-container" id="search-results">
+        <!-- Search results for Movies and TV Shows will be displayed here -->
+    </div>
+		<div class="black-space"></div>
+<footer class="footer">
+  <div class="footer-icons">
+    <a href="index.html" class="footer-icon">
+      <i class="fas fa-home"></i> Home
+    </a>
+    <a href="movies.html" class="footer-icon">
+      <i class="fas fa-film"></i> Movies
+    </a>
+    <a href="tvshows.html" class="footer-icon">
+      <i class="fas fa-tv"></i> TV Shows
+    </a>
+
+<a href="#" class="footer-icon" id="moreMenuToggle">
+  <i class="fas fa-bars"></i> More
+</a>
+
+<div class="more-menu" id="moreMenu">
+<ul>
+  <li><a href="korean.html"><i class="fas fa-clapperboard"></i>&nbsp;Korean</a></li>
+  <li><a href="pmovies.html"><i class="bi bi-film"></i>&nbsp;Pinoy Movies</a></li>
+  <ul id="favoriteList">
+  <li><a href="favorite.html"><i class="fas fa-star"></i>&nbsp;Favorites</a></li>
+  </ul>  
+  <li><a href="donate.html"><i class="fas fa-hand-holding-heart"></i>&nbsp;Donate</a></li>  
+  <li><a href="disclaimer.html"><i class="fas fa-exclamation-triangle"></i>&nbsp;Disclaimer</a></li> 
+</ul>
+</div>
+</div>
+</footer>
+
+<script>
+document.getElementById("desktopMoreToggle").addEventListener("click", function(event) {
+  event.preventDefault(); 
+  var moreMenu = document.getElementById("desktopMoreMenu");
+
+  
+  if (moreMenu.style.display === "none" || moreMenu.style.display === "") {
+    moreMenu.style.display = "block";
+  } else {
+    moreMenu.style.display = "none";
+  }
+
+  
+  event.stopPropagation();
+});
+
+
+document.addEventListener("click", function(event) {
+  var moreMenu = document.getElementById("desktopMoreMenu");
+  var toggleButton = document.getElementById("desktopMoreToggle");
+
+  
+  if (!moreMenu.contains(event.target) && event.target !== toggleButton) {
+    moreMenu.style.display = "none"; 
+  }
+});
+
+document.getElementById('moreMenuToggle').addEventListener('click', function(event) {
+  event.preventDefault();
+  const moreMenu = document.getElementById('moreMenu');
+  moreMenu.style.display = moreMenu.style.display === 'block' ? 'none' : 'block';
+});
+
+window.addEventListener('click', function(event) {
+  const moreMenu = document.getElementById('moreMenu');
+  const menuToggle = document.getElementById('moreMenuToggle');
+  if (!menuToggle.contains(event.target) && !moreMenu.contains(event.target)) {
+    moreMenu.style.display = 'none';
+  }
+});
+
+function toggleMenu() {
+    const menu = document.querySelector('.menu');
+    menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+}
+
+const searchInput = document.getElementById('search-bar');
+const clearButton = document.querySelector('.clear-button');
+
+
+searchInput.addEventListener('input', () => {
+    if (searchInput.value.length > 0) {
+        clearButton.style.display = 'block'; 
+    } else {
+        clearButton.style.display = 'none'; 
+    }
+
+    
+    if (searchInput.value.length > 0) {
+        suggestionsContainer.style.display = 'block'; 
+    } else {
+        suggestionsContainer.style.display = 'none'; 
+    }
+});
+
+
+function clearSearchInput() {
+    searchInput.value = '';
+    clearButton.style.display = 'none'; 
+    suggestionsContainer.style.display = 'none'; 
+}
+
+
+clearButton.addEventListener('click', () => {
+    clearSearchInput();
+});
+
+
+document.addEventListener('click', (event) => {
+    if (!searchInput.contains(event.target) && !clearButton.contains(event.target) && !suggestionsContainer.contains(event.target)) {
+        clearSearchInput();
+    }
+});
+
+
+
+function toggleMenu() {
+    const menu = document.querySelector('.menu');
+    menu.classList.toggle('active');
+}
+       
+        document.body.addEventListener('click', function() {
+            var audio = document.getElementById('audio-player');
+            
+            
+            audio.play().then(function() {
+                audio.muted = false; 
+            }).catch(function(error) {
+                console.log("Autoplay failed:", error);
+            });
+        });
+		
+		document.addEventListener("DOMContentLoaded", () => {
+    const modal = document.getElementById("trailerModal");
+    const closeButton = document.querySelector(".close");
+
+    if (closeButton) {
+        closeButton.addEventListener("click", () => {
+            modal.style.display = "none";
+            document.getElementById("trailerFrame").innerHTML = ""; 
+        });
+    }
+
+    
+    modal.addEventListener("click", (event) => {
+        if (event.target === modal) {
+            modal.style.display = "none";
+            document.getElementById("trailerFrame").innerHTML = ""; 
+        }
+    });
+});
+
+</script>
+</head>
+<body>
+
+
+<style>
+
+.suggestions-container {
+	font-family: 'Anton', sans-serif; 
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    border-radius: 5px;
+    display: none;
+    z-index: 10;
+    max-height: 300px; 
+    overflow-y: auto; 
+    scrollbar-width: thin; 
+    scrollbar-color: #888 #f0f0f0;
+    border: 1px solid #ddd;
+    background: white;
+}
+
+.suggestions-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.suggestions-container::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+.suggestions-container::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.suggestion-item {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    cursor: pointer;
+    border-bottom: 1px solid #ddd;
+}
+
+.suggestion-item:hover {
+    background-color: #f0f0f0;
+}
+
+.suggestion-poster {
+    width: 50px;
+    height: 75px;
+    object-fit: cover;
+    margin-right: 10px;
+    border-radius: 4px;
+}
+
+@media screen and (max-width: 768px) {
+    .suggestions-container {
+        width: 90vh; 
+        transform: translateX(-40%); 
+        max-width: 230px; 
+    }
+
+    .suggestion-poster {
+        width: 50px;  
+        height: 70px;
+        margin-right: 8px; 
+        border-radius: 3px; 
+    }
+
+    .suggestion-title {
+        font-size: 12px; 
+    }
+
+    .suggestion-item {
+        padding: 6px; 
+    }
+}
+
+
+.suggestion-title {
+    font-size: 19px;
+    color: #333;
+    font-weight: 500;
+}
+
+.suggestion-title {
+    font-size: 16px; 
+}
+
+@media (max-width: 600px) {
+    .suggestion-title {
+        font-size: 12px; 
+    }
+}
+
+
+.search-results-container {
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.search-result-category {
+    margin-bottom: 30px;
+}
+
+.search-result-category h2 {
+    font-size: 20px;
+    font-family: 'Lemon Milk', sans-serif;
+    color: #bbb;
+    letter-spacing: 1px;
+	margin-left: 30px;
+}
+
+
+@media (max-width: 768px) {
+    .search-result-category h2 {
+        font-size: 16px; 
+        margin: 10px 0; 
+		margin-left: 15px;
+    }
+}
+
+.search-result-item {
+    background-color: #222;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.search-result-item:hover {
+    transform: scale(1.05);
+}
+
+.search-result-item img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block; 
+}
+
+.search-result-item .info {
+    padding: 5px 10px;
+    color: white;
+}
+
+.search-result-item .info h4 {
+    font-size: 180px;
+    margin-bottom: 5px;
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    text-overflow: ellipsis;
+}
+
+.search-result-item .info p {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.star-rating {
+    color: yellow;
+    font-size: 16px;
+}
+
+.loading {
+    text-align: center;
+    font-size: 20px;
+    color: #888;
+}
+
+
+.search-result-items {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); 
+    gap: 12px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+
+@media (max-width: 1200px) {
+    .search-result-items {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+
+@media (max-width: 992px) {
+    .search-result-items {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+
+@media (max-width: 768px) {
+    .search-result-items {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 8px;
+    }
+
+    .search-result-item img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .search-result-item .info h4 {
+        font-size: 16px;
+    }
+
+    .search-result-item .info p {
+        font-size: 12px;
+    }
+}
+
+
+@media (max-width: 480px) and (min-width: 331px) {
+    .search-result-items {
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 6px;
+    }
+
+    .search-result-item .info h4 {
+        font-size: 14px;
+    }
+
+    .search-result-item .info p {
+        font-size: 10px;
+    }
+}
+
+
+@media (max-width: 330px) {
+    .search-result-items {
+        grid-template-columns: 1fr; 
+    }
+
+    .search-result-item .info h4 {
+        font-size: 13px;
+    }
+
+    .search-result-item .info p {
+        font-size: 9px;
+    }
+}
+
+</style>
+<script>
+const apiKey = 'ea97a714a43a0e3481592c37d2c7178a';
+const baseUrl = 'https://api.themoviedb.org/3/';
+const searchBar = document.getElementById('search-bar');
+const suggestionsContainer = document.getElementById('suggestions-container');
+const searchButton = document.getElementById('search-button');
+const backToTopButton = document.getElementById('backToTop');
+
+
+const urlParams = new URLSearchParams(window.location.search);
+const query = urlParams.get('query');
+
+
+if (!query) {
+    document.getElementById('search-results').innerHTML = '<p>No search query found.</p>';
+}
+
+
+async function fetchData(endpoint) {
+    const url = `${baseUrl}${endpoint}?api_key=${apiKey}&query=${encodeURIComponent(query)}&language=en-US`;
+    const res = await fetch(url);
+    if (!res.ok) {
+        throw new Error(`Error fetching data from ${url}`);
+    }
+    const data = await res.json();
+    return data.results;
+}
+
+
+async function displaySearchResults() {
+    
+    try {
+        const movieResults = await fetchData('search/movie');
+        const tvShowResults = await fetchData('search/tv');
+
+        
+        if (!movieResults.length && !tvShowResults.length) {
+            document.getElementById('search-results').innerHTML = '<p>No results found.</p>';
+        } else {
+            
+            displayResults(movieResults, 'Movies', 'movie-result');
+            displayResults(tvShowResults, 'TV Shows', 'tv-show-result');
+        }
+    } catch (error) {
+        console.error('Error fetching search results:', error);
+        document.getElementById('search-results').innerHTML = `<p>Error fetching results: ${error.message}. Please try again later.</p>`;
+    }
+}
+
+function displayResults(results, category) {
+    const resultsContainer = document.getElementById('search-results');
+    const categorySection = document.createElement('div');
+    categorySection.classList.add('search-result-category');
+    categorySection.innerHTML = `<h2>${category}</h2>`;
+
+    if (results && results.length > 0) {
+        const itemsContainer = document.createElement('div');
+        itemsContainer.classList.add('search-result-items');
+
+        
+        const filteredResults = results.filter(item => item.poster_path);
+
+        filteredResults.forEach(item => {
+            const isMovie = item.hasOwnProperty('title'); 
+            const targetPage = isMovie ? 'movie-library.html' : 'tv-shows-library.html'; 
+            const idParam = isMovie ? `movieId=${item.id}` : `tvId=${item.id}`; 
+
+            const resultItem = document.createElement('div');
+            resultItem.classList.add('search-result-item');
+            resultItem.innerHTML = `
+                <a href="${targetPage}?id=${item.id}">
+                    <img src="https://image.tmdb.org/t/p/w500${item.poster_path}" alt="${item.title || item.name}">
+                </a>
+            `;
+            itemsContainer.appendChild(resultItem);
+        });
+
+        categorySection.appendChild(itemsContainer);
+    } else {
+        categorySection.innerHTML += `<p>No results found for this category.</p>`;
+    }
+    resultsContainer.appendChild(categorySection);
+}
+
+
+
+function formatReleaseDate(releaseDate) {
+    const date = new Date(releaseDate);
+    const options = { month: 'long', year: 'numeric' };
+    return date.toLocaleDateString('en-US', options);
+}
+
+
+function getStarRating(voteAverage) {
+    const totalStars = 5;
+    const fullStars = Math.round(voteAverage / 2);
+    const stars = '★'.repeat(fullStars) + '☆'.repeat(totalStars - fullStars);
+    return stars;
+}
+
+
+function toggleMenu() {
+    const menu = document.querySelector('nav .menu');
+    menu.classList.toggle('active');
+}
+
+
+document.getElementById('search-button').addEventListener('click', function () {
+    const searchQuery = document.getElementById('search-bar').value;
+    if (searchQuery.trim()) {
+        window.location.href = `result.html?query=${encodeURIComponent(searchQuery)}`;
+    }
+});
+
+
+document.getElementById('search-bar').addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+        document.getElementById('search-button').click();
+    }
+});
+
+displaySearchResults();
+
+
+async function fetchSearchSuggestions(query) {
+    if (!query) {
+        suggestionsContainer.style.display = 'none';
+        return;
+    }
+    const url = `${baseUrl}search/multi?api_key=${apiKey}&language=en-US&query=${query}&page=1`;
+    const res = await fetch(url);
+    const data = await res.json();
+    displaySuggestions(data.results);
+}
+
+
+function displaySuggestions(results) {
+    suggestionsContainer.innerHTML = '';
+    if (results.length > 0) {
+        results.forEach(result => {
+            const suggestionItem = document.createElement('div');
+            suggestionItem.classList.add('suggestion-item');
+
+            
+            const posterPath = result.poster_path 
+                ? `https://image.tmdb.org/t/p/w92${result.poster_path}` 
+                : 'https://via.placeholder.com/50x75?text=No+Image';
+
+            
+            const posterImg = document.createElement('img');
+            posterImg.src = posterPath;
+            posterImg.alt = result.name || result.title;
+            posterImg.classList.add('suggestion-poster');
+
+            
+            const titleElement = document.createElement('span');
+            titleElement.textContent = result.name || result.title;
+            titleElement.classList.add('suggestion-title');
+
+            
+            suggestionItem.appendChild(posterImg);
+            suggestionItem.appendChild(titleElement);
+
+            
+            suggestionItem.addEventListener('click', () => {
+                
+                if (result.media_type === 'movie') {
+                    window.location.href = `movie-library.html?id=${result.id}`; 
+                } else if (result.media_type === 'tv') {
+                    window.location.href = `tv-shows-library.html?id=${result.id}`; 
+                }
+
+                
+                searchBar.value = '';
+                
+                
+                suggestionsContainer.style.display = 'none';
+            });
+
+            suggestionsContainer.appendChild(suggestionItem);
+        });
+
+        
+        suggestionsContainer.style.display = 'block';
+    } else {
+        suggestionsContainer.style.display = 'none';
+    }
+}
+
+
+function handleSearch() {
+    const query = searchBar.value.trim();
+    if (query) {
+        window.location.href = `result.html?query=${query}`;
+        searchBar.value = ''; 
+        suggestionsContainer.style.display = 'none'; 
+    }
+}
+
+
+searchBar.addEventListener('input', (e) => {
+    fetchSearchSuggestions(e.target.value);
+});
+
+
+searchButton.addEventListener('click', handleSearch);
+
+
+searchBar.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        handleSearch();
+    }
+});
+
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {  
+        backToTopButton.classList.add('show');
+    } else {
+        backToTopButton.classList.remove('show');
+    }
+});
+
+
+backToTopButton.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meowflex - Home</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #fff;
+        }
+
+@font-face {
+    font-family: 'Firlest';
+    src: url('Firlest-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lemon Milk';
+    src: url('LemonMilk.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Mouser O';
+    src: url('Mouser_o.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Lemon Milk', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
+    color: #fff;
+}
+
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-family: 'Lemon Milk', cursive;
+  font-size: 30px;
+  color: #00FF00;
+  gap: 10px;
+  text-transform: uppercase;
+  font-weight: bold;
+  position: relative;
+}
+
+nav .logo .logo-img {
+  height: 40px;
+}
+
+nav .logo .logo-text {
+  line-height: 1;
+}
+
+
+@media (max-width: 600px) {
+  nav .logo {
+    font-size: 20px; 
+    gap: 5px; 
+  }
+
+  nav .logo .logo-img {
+    height: 36px; 
+  }
+}
+
+nav {
+    background-color: black;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+nav .search-bar-container {
+    position: relative;
+    width: 40%;
+}
+
+nav .search-bar {
+    font-family: 'Anton', sans-serif;
+    width: 100%;
+    padding: 10px 50px 10px 15px;
+    background-color: white;
+    border: none;
+    color: black;
+    border-radius: 20px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+nav .search-button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav .search-button img {
+    width: 30px;
+    height: 30px;
+}
+
+nav .search-button:hover {
+    background-color: #555;
+}
+
+.clear-button {
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: red;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 5px;
+    display: none;
+}
+
+.clear-button:hover {
+    color: black;
+}
+
+
+@media (max-width: 768px) {
+    nav {
+        padding: 10px;
+    }
+
+    nav .search-bar-container {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    nav .search-bar {
+        font-size: 14px;
+        padding: 8px 45px 8px 12px;
+        height: 36px;
+    }
+
+    nav .search-button img {
+        width: 24px;
+        height: 24px;
+    }
+
+    .clear-button {
+        font-size: 16px;
+    }
+}
+
+
+@media (max-width: 480px) {
+    nav .search-bar {
+        font-size: 12px;
+        padding: 6px 40px 6px 10px;
+        height: 32px;
+    }
+
+    nav .search-button img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .clear-button {
+        font-size: 14px;
+    }
+}
+
+
+
+nav .menu {
+    display: flex;
+    gap: 25px;
+    font-family: 'Lemon Milk', sans-serif; 
+}
+
+.menu a {
+    text-decoration: none;
+    color: #bbb;
+    font-family: 'Lemon Milk', sans-serif; 
+    font-size: 18px;
+}
+
+.menu a:hover {
+    color: #00FF00; 
+    text-shadow: 2px 2px 0px black, -2px -2px 0px black, -2px 2px 0px black, 2px -2px 0px black;
+}
+
+@media screen and (max-width: 768px) {
+    .menu a {
+        font-size: 20px; 
+        padding: 10px; 
+    }
+}
+
+
+nav .burger {
+    display: none; 
+    font-size: 30px;
+    cursor: pointer;
+    color: #00FF00;
+    font-family: 'Anton', sans-serif; 
+}
+
+
+@media screen and (max-width: 768px) {
+    
+    nav .menu {
+        display: none; 
+        flex-direction: column; 
+        gap: 10px;
+        font-size: 14px;   
+    }
+
+    
+    nav .menu a.hovered, nav .menu a:hover {
+        background-color: #007BFF; 
+        color: #fff;
+    }
+
+    
+    nav .burger {
+        display: none; 
+    }
+
+    
+    nav.open .menu {
+        display: flex; 
+    }
+
+    
+    nav .search-bar-container {
+        width: 40%;
+    }
+
+    
+    nav .menu a {
+        text-decoration: none;
+        color: #ffcc00;
+        padding: 10px 20px;
+        display: block;
+        text-align: right;
+    }
+}
+
+</style>
+</head>
+<body>
+<nav>
+<div class="logo">
+  <img src="android-chrome-512x512.png" alt="Meowflex Logo" class="logo-img">
+  <span class="logo-text">Meowflex</span>
+</div>
+
+<div class="search-bar-container">
+    <input type="text" class="search-bar" id="search-bar" placeholder="Search movies, or TV shows...">
+    <button class="search-button" id="search-button">
+        <img src="search.png" alt="Search" class="search-icon">
+    </button>
+    <button class="clear-button" onclick="clearSearchInput()">×</button>
+    <div id="suggestions-container" class="suggestions-container"></div>
+</div>
+ <div class="burger" onclick="toggleMenu()">&#9776;</div>
+        <div class="menu">
+            <a href="index.html">Home</a>
+            <a href="movies.html">Movies</a>
+            <a href="tvshows.html">TV Shows</a>
+			<a href="korean.html">Korean</a>
+			<a href="pmovies.html">Pinoy Movies</a>
+        </div>
+    </nav>
+</header>
+
+<div class="iframe-container">
+  <button id="backButton" onclick="goBack()">Back</button>
+  <iframe id="movieFrame" allowfullscreen style="width:100%; height:100%; border:none;"></iframe>
+</div>
+
+<script>
+
+function goBack() {
+  window.history.back();
+}
+
+
+const params = new URLSearchParams(window.location.search);
+const type = params.get('type');
+const id = params.get('id');
+
+
+if (type && id) {
+  const iframe = document.getElementById('movieFrame');
+
+  
+  iframe.src = `https://vidsrc.cc/v2/embed/${type}/${id}?autoplay=1`;
+
+  
+  function requestFullscreenAndLandscape() {
+    if (iframe.requestFullscreen) {
+      iframe.requestFullscreen().then(() => {
+        if (screen.orientation && screen.orientation.lock) {
+          screen.orientation.lock('landscape').catch(err => {
+            console.warn("Orientation lock failed:", err);
+          });
+        }
+      }).catch(err => {
+        console.warn("Fullscreen request failed:", err);
+      });
+    } else {
+      console.warn("Fullscreen not supported in this browser.");
+    }
+  }
+
+  
+  document.addEventListener('click', function handleFirstClick() {
+    requestFullscreenAndLandscape();
+    
+    document.removeEventListener('click', handleFirstClick);
+  });
+  
+} else {
+  document.body.innerHTML = "<p>Error: Missing movie 'type' or 'id' in the URL.</p>";
+  console.error("Error: URL is missing 'type' or 'id'.");
+}
+
+
+function toggleMenu() {
+  const menu = document.querySelector('.menu');
+  menu.classList.toggle('active');
+}
+</script>
+
+
+</head>
+<body>
+    <script>
+        
+        document.body.addEventListener('click', function() {
+            var audio = document.getElementById('audio-player');
+            
+            
+            audio.play().then(function() {
+                audio.muted = false; 
+            }).catch(function(error) {
+                console.log("Autoplay failed:", error);
+            });
+        });
+		
+		document.addEventListener("DOMContentLoaded", () => {
+    const modal = document.getElementById("trailerModal");
+    const closeButton = document.querySelector(".close");
+
+    if (closeButton) {
+        closeButton.addEventListener("click", () => {
+            modal.style.display = "none";
+            document.getElementById("trailerFrame").innerHTML = ""; 
+        });
+    }
+
+    
+    modal.addEventListener("click", (event) => {
+        if (event.target === modal) {
+            modal.style.display = "none";
+            document.getElementById("trailerFrame").innerHTML = ""; 
+        }
+    });
+});
+
+</script>
+
+<style>
+
+.movie {
+  background: #333;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.movie:hover {
+  background: #555;
+}
+
+ .iframe-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .iframe-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+  }
+ 
+#backButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin: 20px;
+}
+
+
+#backButton:hover {
+    background-color: green;
+    transform: scale(1.05);
+}
+
+
+#backButton:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+
+#backButton {
+    position: absolute;
+    top: 20px;  
+    left: 20px; 
+}
+
+
+@media screen and (max-width: 768px) {
+    #backButton {
+        padding: 8px 15px;
+        font-size: 14px;
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        margin: 10px;
+        z-index: 1000; 
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #backButton {
+        padding: 6px 12px;
+        font-size: 12px;
+        top: 5px;
+        left: 5px;
+    }
+}
+
+        .suggestions-container {
+            position: absolute;
+            top: 40px;
+            left: 0;
+            width: 100%;
+            background-color: #222;
+            border-radius: 5px;
+            display: none;
+            z-index: 10;
+        }
+
+        .suggestion-item {
+            padding: 10px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .suggestion-item:hover {
+            background-color: #444;
+        }
+.suggestions-container {
+    max-height: 300px; 
+    overflow-y: auto; 
+    scrollbar-width: thin; 
+    scrollbar-color: #888 #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: white;
+    position: absolute;
+    width: 100%;
+    z-index: 1000;
+}
+
+.suggestions-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.suggestions-container::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+.suggestions-container::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.suggestion-item {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    cursor: pointer;
+    border-bottom: 1px solid #ddd;
+}
+
+.suggestion-item:hover {
+    background-color: #f0f0f0;
+}
+
+.suggestion-poster {
+    width: 50px;
+    height: 75px;
+    object-fit: cover;
+    margin-right: 10px;
+    border-radius: 4px;
+}
+@media screen and (max-width: 768px) {
+    .suggestion-poster {
+        width: 30px;  
+        height: 50px;
+        margin-right: 8px; 
+        border-radius: 3px; 
+    }
+}
+
+.suggestion-title {
+    font-size: 14px;
+    color: #333;
+    font-weight: 500;
+}
+
+@media screen and (max-width: 768px) {
+    .suggestions-container {
+        width: 90vh; 
+        transform: translateX(-40%); 
+        max-width: 260px; 
+    }
+
+    .suggestion-item {
+        padding: 6px; 
+    }
+}
+
+</style>
+<script>
+const apiKey = "ea97a714a43a0e3481592c37d2c7178a";
+const urlParams = new URLSearchParams(window.location.search);
+const movieId = urlParams.get("id") || urlParams.get("movieId"); 
+const baseUrl = "https://api.themoviedb.org/3/";
+const searchBar = document.getElementById('search-bar');
+const suggestionsContainer = document.getElementById('suggestions-container');
+const searchButton = document.getElementById('search-button');
+
+console.log("Extracted Movie ID:", movieId);
+
+if (!movieId) {
+    console.error("No movie ID found in URL");
+}
+
+
+
+async function fetchSearchSuggestions(query) {
+    if (!query) {
+        suggestionsContainer.style.display = 'none';
+        return;
+    }
+    const url = `${baseUrl}search/multi?api_key=${apiKey}&language=en-US&query=${query}&page=1`;
+    const res = await fetch(url);
+    const data = await res.json();
+    displaySuggestions(data.results);
+}
+
+
+function displaySuggestions(results) {
+    suggestionsContainer.innerHTML = '';
+    if (results.length > 0) {
+        results.forEach(result => {
+            const suggestionItem = document.createElement('div');
+            suggestionItem.classList.add('suggestion-item');
+
+            
+            const posterPath = result.poster_path 
+                ? `https://image.tmdb.org/t/p/w92${result.poster_path}` 
+                : 'https://via.placeholder.com/50x75?text=No+Image';
+
+            
+            const posterImg = document.createElement('img');
+            posterImg.src = posterPath;
+            posterImg.alt = result.name || result.title;
+            posterImg.classList.add('suggestion-poster');
+
+            
+            const titleElement = document.createElement('span');
+            titleElement.textContent = result.name || result.title;
+            titleElement.classList.add('suggestion-title');
+
+            
+            suggestionItem.appendChild(posterImg);
+            suggestionItem.appendChild(titleElement);
+
+            
+            suggestionItem.addEventListener('click', () => {
+                
+                window.location.href = `result.html?query=${result.name || result.title}`;
+
+                
+                searchBar.value = '';
+                
+                
+                suggestionsContainer.style.display = 'none';
+            });
+
+            suggestionsContainer.appendChild(suggestionItem);
+        });
+
+        
+        suggestionsContainer.style.display = 'block';
+    } else {
+        suggestionsContainer.style.display = 'none';
+    }
+}
+
+
+function handleSearch() {
+    const query = searchBar.value.trim();
+    if (query) {
+        window.location.href = `result.html?query=${query}`;
+        searchBar.value = ''; 
+        suggestionsContainer.style.display = 'none'; 
+    }
+}
+
+
+searchBar.addEventListener('input', (e) => {
+    fetchSearchSuggestions(e.target.value);
+});
+
+
+searchButton.addEventListener('click', handleSearch);
+
+
+searchBar.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        handleSearch();
+    }
+});
+
+</script>
+
+</body>
+</html>
