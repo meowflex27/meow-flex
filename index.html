@@ -307,6 +307,30 @@
         </div>
     </div>
 </div>
+<div class="carousel-section">
+    <h2>Hulu Top 10 Movies</h2>
+    <div class="carousel-container">
+        <div class="carousel" id="top-hulu-movies">
+        </div>
+        <div class="slider-controls">
+            <button class="slider-prev" onclick="moveCarousel('top-hulu-movies', -1)">&#10094;</button>
+            <button class="slider-next" onclick="moveCarousel('top-hulu-movies', 1)">&#10095;</button>
+        </div>
+    </div>
+</div>
+
+<div class="carousel-section">
+    <h2>Hulu Top 10 TV Shows</h2>
+    <div class="carousel-container">
+        <div class="carousel" id="top-hulu-tv-shows">
+        </div>
+        <div class="slider-controls">
+            <button class="slider-prev" onclick="moveCarousel('top-hulu-tv-shows', -1)">&#10094;</button>
+            <button class="slider-next" onclick="moveCarousel('top-hulu-tv-shows', 1)">&#10095;</button>
+        </div>
+    </div>
+</div>
+
 
 <div class="black-space"></div>
 
@@ -761,7 +785,7 @@ displaySearchResults();
 setInterval(displaySearchResults, 86400000);
 
 
-const topHboMovieIds = [1114513, 539972, 1084199, 869291, 843416, 502356, 1035048, 303991, 855, 64635]; 
+const topHboMovieIds = [539972, 574475, 1184918, 1252309, 55779, 1114513, 9358, 502356, 966822, 1035048]; 
 
 
 async function fetchDetailsById(id, type = 'movie') {
@@ -820,7 +844,7 @@ async function displayTopHboMovies() {
 
 displayTopHboMovies();
 
-const topHboTvShowIds = [100088, 243875, 124101, 69478, 210865, 244628, 212907, 125282, 228853, 231003]; 
+const topHboTvShowIds = [100088, 243875, 124101, 113959, 210865, 69478, 212907, 244628, 286269, 125282]; 
 
 
 async function fetchDetailsById(id, type = 'movie') {
@@ -880,10 +904,10 @@ async function displayTopHboTvShows() {
 displayTopHboTvShows();
 
 
-const topDisneyMovieIds = [762509, 552524, 20760, 1893, 661539, 1241982, 425, 1477884, 330459, 299534]; 
+const topDisneyMovieIds = [330459, 552524, 1477884, 762509, 20760, 11, 1241982, 299534, 2062, 1893]; 
 
 
-const topDisneyTvShowIds = [83867, 1416, 207411, 1421, 82728, 456, 288055, 2004, 693, 233256]; 
+const topDisneyTvShowIds = [83867, 1416, 82728, 1421, 456, 261102, 2004, 207411, 693, 4057]; 
 
 
 async function fetchDetailsById(id, type = 'movie') {
@@ -977,9 +1001,9 @@ displayTopDisneyMovies();
 displayTopDisneyTvShows();
 
 //top 10 Amazon Prime movies
-const topAmazonMovieIds = [974573, 974576, 1097549, 604685, 1045938, 302946, 484247, 1226578, 931349, 1317088]; 
+const topAmazonMovieIds = [939243, 402431, 974576, 822119, 950387, 1272149, 438695, 558449, 1097549, 944401]; 
 //top 10 Amazon Prime TV shows
-const topAmazonTvShowIds = [108978, 71914, 194766, 258764, 16286, 225383, 279901, 95557, 92369, 66398];
+const topAmazonTvShowIds = [108978, 71914, 194766, 289693, 157741, 92875, 128904, 111803, 73586, 82728];
 
 async function displayTopAmazonMovies() {
     try {
@@ -1044,10 +1068,10 @@ async function displayTopAmazonTvShows() {
 displayTopAmazonMovies();
 displayTopAmazonTvShows();
 
-const topAppleMovieIds = [950396, 877817, 585511, 868759, 516486, 1029575, 753342, 956842, 466420, 1059064]; 
+const topAppleMovieIds = [950396, 877817, 585511, 868759, 1029575, 516486, 753342, 956842, 1400288, 466420]; 
 
 
-const topAppleTvShowIds = [241609, 247767, 95396, 97546, 125988, 231001, 262594, 80752, 127641, 209876]; 
+const topAppleTvShowIds = [241609, 241554, 247767, 95396, 97546, 125988, 231001, 262594, 80752, 127641]; 
 
 
 async function displayTopAppleMovies() {
@@ -1112,6 +1136,64 @@ async function displayTopAppleTvShows() {
 
 displayTopAppleMovies();
 displayTopAppleTvShows();
+
+const topHuluMovieIds = [1241674, 1468108, 177677, 343668, 87428, 207703, 238713, 9616, 299687, 7446];
+const topHuluTvShowIds = [261102, 75219, 1416, 129500, 79744, 69478, 249695, 111903, 208569, 233256];
+
+async function displayTopHuluMovies() {
+    try {
+        const topHuluMoviesContainer = document.getElementById('top-hulu-movies');
+        topHuluMoviesContainer.innerHTML = '';
+
+        for (const movieId of topHuluMovieIds) {
+            const movie = await fetchDetailsById(movieId, 'movie');
+            const posterUrl = movie.poster_path ? `https://image.tmdb.org/t/p/w500${movie.poster_path}` : 'default-poster.jpg';
+
+            const movieItem = document.createElement('div');
+            movieItem.classList.add('movie-item');
+            movieItem.innerHTML = `
+                <a href="movie-library.html?movieId=${movie.id}">
+                    <img src="${posterUrl}" alt="${movie.title}">
+                </a>
+                <div class="info">
+                    <a href="movie-library.html?movieId=${movie.id}"></a>
+                </div>
+            `;
+            topHuluMoviesContainer.appendChild(movieItem);
+        }
+    } catch (error) {
+        console.error('Error fetching top Hulu movies:', error);
+    }
+}
+
+async function displayTopHuluTvShows() {
+    try {
+        const topHuluTvShowsContainer = document.getElementById('top-hulu-tv-shows');
+        topHuluTvShowsContainer.innerHTML = '';
+
+        for (const tvShowId of topHuluTvShowIds) {
+            const tvShow = await fetchDetailsById(tvShowId, 'tv');
+            const posterUrl = tvShow.poster_path ? `https://image.tmdb.org/t/p/w500${tvShow.poster_path}` : 'default-poster.jpg';
+
+            const tvShowItem = document.createElement('div');
+            tvShowItem.classList.add('movie-item');
+            tvShowItem.innerHTML = `
+                <a href="tv-shows-library.html?id=${tvShow.id}">
+                    <img src="${posterUrl}" alt="${tvShow.name}">
+                </a>
+                <div class="info">
+                    <a href="tv-shows-library.html?id=${tvShow.id}"></a>
+                </div>
+            `;
+            topHuluTvShowsContainer.appendChild(tvShowItem);
+        }
+    } catch (error) {
+        console.error('Error fetching top Hulu TV shows:', error);
+    }
+}
+
+displayTopHuluMovies();
+displayTopHuluTvShows();
 
  document.addEventListener('DOMContentLoaded', function () {
     const carouselContainers = document.querySelectorAll('.carousel-container');
