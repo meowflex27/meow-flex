@@ -705,37 +705,52 @@ window.onload = () => {
 
 displayTrendingTVShows();
 
+const manualNetflixMovieIds = [1355983, 1001414, 1387175, 1040148, 1381548, 1261148, 1339772, 1379881, 591273, 603692]; 
+const manualNetflixTVShowIds = [255779, 281006, 261980, 289486, 246992, 278428, 224819, 283367, 262878, 235355]; 
+
+// Fetch a single movie by ID
+async function fetchMovieById(id) {
+    const url = `${baseUrl}movie/${id}?api_key=${apiKey}&language=en-US`;
+    const response = await fetch(url);
+    return response.ok ? await response.json() : null;
+}
+
+// Fetch a single TV show by ID
+async function fetchTVShowById(id) {
+    const url = `${baseUrl}tv/${id}?api_key=${apiKey}&language=en-US`;
+    const response = await fetch(url);
+    return response.ok ? await response.json() : null;
+}
+
+// Fetch all manually specified Netflix movies
 async function fetchMovies() {
-    const url = `${baseUrl}discover/movie?api_key=${apiKey}&language=en-US&with_watch_providers=8&watch_region=US&primary_release_date.lte=${new Date().toISOString().split('T')[0]}&sort_by=popularity.desc&page=1`;
-    const response = await fetch(url);
-    const data = await response.json();
-    return data.results || [];
+    const promises = manualNetflixMovieIds.map(id => fetchMovieById(id));
+    const results = await Promise.all(promises);
+    return results.filter(movie => movie !== null);
 }
 
+// Fetch all manually specified Netflix TV shows
 async function fetchTVShows() {
-    const sixMonthsAgo = new Date();
-    sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
-    const sixMonthsAgoString = sixMonthsAgo.toISOString().split('T')[0];
-    const todayString = new Date().toISOString().split('T')[0];
-
-    const url = `${baseUrl}discover/tv?api_key=${apiKey}&language=en-US&with_watch_providers=8&watch_region=US&first_air_date.gte=${sixMonthsAgoString}&first_air_date.lte=${todayString}&sort_by=popularity.desc&page=1`;
-    const response = await fetch(url);
-    const data = await response.json();
-    return data.results || [];
+    const promises = manualNetflixTVShowIds.map(id => fetchTVShowById(id));
+    const results = await Promise.all(promises);
+    return results.filter(show => show !== null);
 }
 
+// Format date
 function formatReleaseDate(releaseDate) {
     if (!releaseDate) return 'Unknown';
     const date = new Date(releaseDate);
     return date.toLocaleDateString();
 }
 
+// Generate star rating
 function getStarRating(rating) {
     if (!rating) return '☆☆☆☆☆';
     const stars = Math.round(rating / 2);
     return '★'.repeat(stars) + '☆'.repeat(5 - stars);
 }
 
+// Display movie and TV show results
 async function displaySearchResults() {
     try {
         const containerMovies = document.getElementById('trending-netflix-movies');
@@ -785,7 +800,7 @@ displaySearchResults();
 setInterval(displaySearchResults, 86400000);
 
 
-const topHboMovieIds = [539972, 574475, 1184918, 1252309, 55779, 1114513, 9358, 502356, 966822, 1035048]; 
+const topHboMovieIds = [558449, 696506, 9532, 1155089, 9286, 9358, 166428, 82702, 353081, 1088514]; 
 
 
 async function fetchDetailsById(id, type = 'movie') {
@@ -844,7 +859,7 @@ async function displayTopHboMovies() {
 
 displayTopHboMovies();
 
-const topHboTvShowIds = [100088, 243875, 124101, 113959, 210865, 69478, 212907, 244628, 286269, 125282]; 
+const topHboTvShowIds = [100088, 60625, 37606, 281999, 262812, 228935, 251941, 259453, 113959, 110492]; 
 
 
 async function fetchDetailsById(id, type = 'movie') {
@@ -904,10 +919,10 @@ async function displayTopHboTvShows() {
 displayTopHboTvShows();
 
 
-const topDisneyMovieIds = [330459, 552524, 1477884, 762509, 20760, 11, 1241982, 299534, 2062, 1893]; 
+const topDisneyMovieIds = [822119, 552524, 20760, 15567, 762509, 21316, 330459, 2062, 299534, 1893]; 
 
 
-const topDisneyTvShowIds = [83867, 1416, 82728, 1421, 456, 261102, 2004, 207411, 693, 4057]; 
+const topDisneyTvShowIds = [1416, 1421, 456, 83867, 82728, 2004, 693, 261102, 4057, 75219]; 
 
 
 async function fetchDetailsById(id, type = 'movie') {
@@ -1001,9 +1016,9 @@ displayTopDisneyMovies();
 displayTopDisneyTvShows();
 
 //top 10 Amazon Prime movies
-const topAmazonMovieIds = [939243, 402431, 974576, 822119, 950387, 1272149, 438695, 558449, 1097549, 944401]; 
+const topAmazonMovieIds = [1197306, 974573, 1138194, 1097549, 637649, 302946, 1212855, 977294, 866398, 1045938]; 
 //top 10 Amazon Prime TV shows
-const topAmazonTvShowIds = [108978, 71914, 194766, 289693, 157741, 92875, 128904, 111803, 73586, 82728];
+const topAmazonTvShowIds = [243954, 253321, 117648, 88989, 108978, 247619, 16286, 71914, 66398, 45815];
 
 async function displayTopAmazonMovies() {
     try {
@@ -1068,10 +1083,10 @@ async function displayTopAmazonTvShows() {
 displayTopAmazonMovies();
 displayTopAmazonTvShows();
 
-const topAppleMovieIds = [950396, 877817, 585511, 868759, 1029575, 516486, 753342, 956842, 1400288, 466420]; 
+const topAppleMovieIds = [1098006, 950396, 877817, 1029575, 585511, 868759, 516486, 753342, 956842, 1059064]; 
 
 
-const topAppleTvShowIds = [241609, 241554, 247767, 95396, 97546, 125988, 231001, 262594, 80752, 127641]; 
+const topAppleTvShowIds = [241609, 241554, 95396, 247767, 97546, 231001, 125988, 80752, 241491, 127641]; 
 
 
 async function displayTopAppleMovies() {
@@ -1137,8 +1152,8 @@ async function displayTopAppleTvShows() {
 displayTopAppleMovies();
 displayTopAppleTvShows();
 
-const topHuluMovieIds = [1241674, 1468108, 177677, 343668, 87428, 207703, 238713, 9616, 299687, 7446];
-const topHuluTvShowIds = [261102, 75219, 1416, 129500, 79744, 69478, 249695, 111903, 208569, 233256];
+const topHuluMovieIds = [1235499, 13159, 343668, 546121, 177677, 207703, 87428, 1241674, 9702, 106646];
+const topHuluTvShowIds = [69478, 88989, 987, 261102, 202308, 125282, 288712, 291945, 2035, 79744];
 
 async function displayTopHuluMovies() {
     try {
